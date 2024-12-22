@@ -37,4 +37,15 @@ public class PersonController {
             @RequestParam("surname") String surname) {
         return repository.findByNameAndSurname(name, surname);
     }
+    @GetMapping("/public")
+    public String publicEndpoint() {
+        return "This is a public endpoint. No authorization required.";
+    }
+
+    // Защищённый endpoint
+    @GetMapping("/secure")
+    public String secureEndpoint() {
+        return "This is a secure endpoint. Authorization required.";
+    }
+
 }
